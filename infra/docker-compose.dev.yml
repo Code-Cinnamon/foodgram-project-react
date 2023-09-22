@@ -12,22 +12,20 @@ services:
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data/
-    env_file:
-      - ./.env
+    env_file: .env
     
   backend:
-    image: codezzilla/foodgram_backend
+    build: ../backend/
     restart: always
     volumes:
       - static_value:/app/static/
       - media_value:/app/media/
     depends_on:
       - db
-    env_file:
-      - ./.env
+    env_file: .env
 
   frontend:
-    image: codezzilla/foodgram_frontend
+    build: ../frontend/
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:
