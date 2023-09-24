@@ -20,6 +20,8 @@ class UserSerializer(UserSerializer):
 
     def get_is_subscribed(self, author):
         user = self.context['request'].user
+        if user.is_anonymous:
+            return False
         return user.follower.filter(author=author).exists()
 
 
@@ -119,10 +121,14 @@ class RecipeGetSerializer(serializers.ModelSerializer):
 
     def get_is_favorited(self, recipe):
         user = self.context['request'].user
+        if user.is_anonymous:
+            return False
         return user.favorites.filter(recipe=recipe).exists()
 
     def get_is_in_shopping_cart(self, recipe):
         user = self.context['request'].user
+        if user.is_anonymous:
+            return False
         return user.carts.filter(recipe=recipe).exists()
 
 
