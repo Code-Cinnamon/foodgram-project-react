@@ -6,7 +6,6 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import (SAFE_METHODS, AllowAny,
                                         IsAuthenticatedOrReadOnly)
-
 from api.filters import IngredientFilter, RecipeFilter
 from api.mixins import AddRemoveMixin
 from api.pagination import PageLimitPagination
@@ -19,6 +18,7 @@ from api.serializers import (FavoriteSerializer, IngredientSerializer,
 from recipes.models import (Favorite, Ingredient, Recipe, RecipeIngredient,
                             ShoppingCart, Tag)
 from users.models import Subscription, User
+
 from .utils import generate_shopping_list
 
 
