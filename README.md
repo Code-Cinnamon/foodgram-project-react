@@ -42,6 +42,7 @@ docker compose exec backend python manage.py createsuperuser
 ```
 http://localhost/api/docs/redoc.html
 ```
+### Проект доступен по IP адресу 158.160.66.202
 
 ### Автор
 Code-Cinnamon
